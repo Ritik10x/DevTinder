@@ -1,7 +1,7 @@
 const express = require('express')
 
 const app = express();
-
+const {adminAuth} = require('./middlewares/autth')
 
 // app.get('/user',(req,res)=>{
 //     console.log(req.query)
@@ -22,15 +22,27 @@ const app = express();
 // });
 
 
-app.use("/User",(req,res,next)=>{
-    // res.send('Response 1')
+// app.use("/User",(req,res,next)=>{
+//     // res.send('Response 1')
 
-next();
+// next();
 
-},
-(req,res)=>{
-    res.send("Response 2")
-})
+// },
+// (req,res)=>{
+//     res.send("Response 2")
+// })
+
+
+// checking admin auth
+
+app.use("/admin",adminAuth)
+
+
+app.get("/admin/getAllData",(req,res)=>{
+     res.send("all Data sent")
+    
+});
+
 
 
 app.listen(7777,()=>{
