@@ -35,14 +35,22 @@ const {adminAuth} = require('./middlewares/autth')
 
 // checking admin auth
 
-app.use("/admin",adminAuth)
+// app.use("/admin",adminAuth)
 
 
-app.get("/admin/getAllData",(req,res)=>{
-     res.send("all Data sent")
+// app.get("/admin/getAllData",(req,res)=>{
+//      res.send("all Data sent")
     
-});
+// });
 
+
+// Error Handling
+
+app.use("/",(err,req,res,next)=>{
+    if(err){
+        res.status(500).send(err,"eror occured")
+    }
+})
 
 
 app.listen(7777,()=>{
