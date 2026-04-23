@@ -1,7 +1,7 @@
 const express = require('express')
-
+const Connect = require('./dbConnect')
 const app = express();
-const {adminAuth} = require('./middlewares/autth')
+// const {adminAuth} = require('./middlewares/autth')
 
 // app.get('/user',(req,res)=>{
 //     console.log(req.query)
@@ -46,12 +46,12 @@ const {adminAuth} = require('./middlewares/autth')
 
 // Error Handling
 
-app.use("/",(err,req,res,next)=>{
-    if(err){
-        res.status(500).send(err,"eror occured")
-    }
-})
-
+// app.use("/",(err,req,res,next)=>{
+//     if(err){
+//         res.status(500).send(err,"eror occured")
+//     }
+// })
+Connect()
 
 app.listen(7777,()=>{
     console.log("Server is sucessfully Listening on port 7777")
