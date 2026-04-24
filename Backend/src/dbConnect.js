@@ -1,7 +1,7 @@
-const mongoose = require('moongoose')
+const mongoose = require('mongoose')
 
-const Connect =()=>{
- mongoose.Connect('mongodb://localhost:27017/')
+const Connect =async()=>{
+ await mongoose.connect('mongodb://localhost:27017/DevTinder')
 } 
-Connect
+
 module.exports=Connect

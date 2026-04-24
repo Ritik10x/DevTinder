@@ -51,8 +51,14 @@ const app = express();
 //         res.status(500).send(err,"eror occured")
 //     }
 // })
-Connect()
+Connect().then(()=>{
+    console.log("connection established")
 
-app.listen(7777,()=>{
+    app.listen(7777,()=>{
     console.log("Server is sucessfully Listening on port 7777")
 });
+}).catch((Err)=>{
+        console.log(Err,"Error ")
+    })
+
+
